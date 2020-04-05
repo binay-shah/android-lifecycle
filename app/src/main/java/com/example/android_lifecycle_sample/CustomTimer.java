@@ -21,18 +21,12 @@ import androidx.lifecycle.OnLifecycleEvent;
  * <p>
  * https://developer.android.com/guide/components/processes-and-threads
  */
-class CustomTimer implements LifecycleObserver {
+class CustomTimer  {
 
     public static final String TAG = "CustomTimer";
 
     // The number of seconds counted since the timer started
     int secondsCount = 0;
-    Lifecycle lifecycle;
-
-    public CustomTimer(Lifecycle lifecycle) {
-        this.lifecycle = lifecycle;
-        lifecycle.addObserver(this);
-    }
 
     /**
      * [Handler] is a class meant to process a queue of messages (known as [android.os.Message]s)
@@ -42,7 +36,7 @@ class CustomTimer implements LifecycleObserver {
     private Runnable runnable;
 
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
+
     public void startTimer() {
         // Create the runnable action, which prints out a log and increments the seconds counter
         runnable = new Runnable() {
@@ -64,7 +58,6 @@ class CustomTimer implements LifecycleObserver {
         // In this case, no looper is defined, and it defaults to the main or UI thread.
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
     public void stopTimer() {
         // Removes all pending posts of runnable from the handler's queue, effectively stopping the
         // timer

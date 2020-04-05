@@ -11,12 +11,15 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity  {
 
     public static final String TAG = "MainActivity";
+    CustomTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //TODO(01) create a customTimer object
+        timer = new CustomTimer();
+
     }
 
     /** Lifecycle Methods **/
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity  {
     @Override
      public void onStart() {
         super.onStart();
+        timer.startTimer();
         Log.i(TAG, "onStart Called");
     }
 
@@ -42,7 +46,7 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     public void onStop() {
         super.onStop();
-        //timer.stopTimer();
+        timer.stopTimer();
         Log.i(TAG, "onStop Called");
     }
 

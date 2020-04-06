@@ -21,18 +21,15 @@ import androidx.lifecycle.OnLifecycleEvent;
  * <p>
  * https://developer.android.com/guide/components/processes-and-threads
  */
-class CustomTimer implements LifecycleObserver {
+class CustomTimer  {
 
     public static final String TAG = "CustomTimer";
 
     // The number of seconds counted since the timer started
     int secondsCount = 0;
-    Lifecycle lifecycle;
 
-    public CustomTimer(Lifecycle lifecycle) {
-        this.lifecycle = lifecycle;
-        lifecycle.addObserver(this);
-    }
+
+
 
     /**
      * [Handler] is a class meant to process a queue of messages (known as [android.os.Message]s)
